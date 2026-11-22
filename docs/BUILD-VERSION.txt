@@ -1,0 +1,40 @@
+Stock Book release: 2026-11-20-smart-retail-intelligence-r4
+Version: 1.8.0
+Package: Main Stock Book website for Netlify; Telegram Mini App backend remains a separate Render deployment.
+Base: Stock Book integrated-main catalog r3 with the existing Firebase, BILLZ, Supabase and Telegram integration files retained.
+
+SMART RETAIL INTELLIGENCE (2026-11-20)
+- Added a main-system Smart Retail Intelligence section and matching shell navigation.
+- Added a Daily Action Center for slow stock, restock alerts, transfer opportunities and incomplete stock valuation.
+- Added a transparent rule-based Product Health score, slow-moving stock, restock watch, suggested inter-branch transfers, branch performance, color/size demand and best-performing products.
+- Added Excel export for intelligence summaries and recommendation lists.
+- Added a physical stock count workbook workflow. It compares a completed spreadsheet to Stock Book quantities and exports discrepancies; it never changes Firebase/BILLZ stock.
+- Improved catalog slow-moving sales aggregation to process the ledger once instead of rescanning it for each product, reducing page-load work for large catalogs.
+- Corrected the intelligence last-sale date so it uses the all-time positive sale history while period totals remain filtered to the selected period.
+- Improved stock count matching with indexed barcode/SKU matching, ambiguity handling, and blank-count validation.
+
+PRESERVED
+- Existing Firebase authentication and Firestore operational records.
+- Existing BILLZ sync and stock comparison endpoints.
+- Existing Supabase report integrations and environment-variable requirements.
+- Existing product detail/report and catalog sold-out/slow-moving updates.
+- Existing Telegram static Mini App page in /tg/; the separate Render Mini App service/package is not modified here.
+
+IMPORTANT DATA LIMITS
+- Recommendations use movement history saved in Stock Book. Run a full BILLZ sync and stock comparison before relying on the output.
+- Product Health is rule-based; it is not an AI forecast.
+- Inventory value uses latest available BILLZ supply prices and displays price coverage.
+- Transfer suggestions are advisory only.
+- Physical inventory count upload is comparison-only and does not write adjustments.
+- No production deployment was performed from this chat. Use a separate Netlify staging site first.
+
+
+v1.8.1 — GITHUB/NETLIFY HARDENING + BUTTON FIXES
+- Firebase SDK now loads with CDN fallbacks (gstatic -> jsdelivr -> esm.sh). If every CDN fails the login screen says so
+  and the button becomes "Reload", and the shell shows a "could not finish loading" panel (previously all buttons were dead).
+- Shell buttons no longer fail with "still initializing": actions are queued and run as soon as the app is ready/signed in.
+- Sidebar highlight now follows in-app navigation; deep links (/#catalog, /#sync ...) and browser reload keep the section.
+- Search: live search (2+ chars), Enter, search button, "/" shortcut, and search is now available on mobile.
+- Mobile: backdrop closes the menu, compact top bar. Esc closes menus. Offline/online status in the sidebar.
+- Added: _headers (no-cache HTML so GitHub deploys show instantly), robots.txt (private app), manifest, favicon, 404 page,
+  .gitignore, .env.example (variable names only), GitHub Actions check, docs/ folder, stale root copies moved to archive/.

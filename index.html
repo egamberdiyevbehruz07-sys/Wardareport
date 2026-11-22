@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#10152d" />
+<meta name="description" content="Stock Book retail management system" />
+<meta name="robots" content="noindex,nofollow" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2345d6bd'/%3E%3Ctext x='32' y='44' font-size='36' font-weight='900' text-anchor='middle' fill='%23071827' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E" />
+<link rel="manifest" href="/manifest.webmanifest" />
+<noscript><style>body::before{content:"JavaScript is required to use Stock Book.";display:block;padding:20px;color:#fff}</style></noscript>
+<title>Stock Book — Management System</title>
+<style>
+:root{--bg:#0b1020;--panel:#111a32;--panel2:#172241;--panel3:#202d56;--line:rgba(162,180,231,.14);--muted:#9ca9cc;--text:#f4f7ff;--teal:#45d6bd;--mint:#82e6a8;--violet:#a78bfa;--blue:#72a7ff;--orange:#ffbd76;--red:#ff8294;--shadow:0 18px 60px rgba(0,0,0,.25);--radius:20px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,rgba(69,214,189,.09),transparent 30%),radial-gradient(ellipse at 95% 0%,rgba(167,139,250,.12),transparent 30%),var(--bg);color:var(--text);font:14px/1.45 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:250px minmax(0,1fr);min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;padding:22px 15px;border-right:1px solid var(--line);background:rgba(10,15,31,.86);backdrop-filter:blur(18px);display:flex;flex-direction:column;z-index:10}.brand{display:flex;align-items:center;gap:12px;padding:5px 10px 25px}.brandmark{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--teal),#5a8dff 65%,var(--violet));display:grid;place-items:center;color:#071827;font-weight:950;font-size:19px;box-shadow:0 8px 24px #45d6bd33}.brandname{font-size:16px;font-weight:850;letter-spacing:-.3px}.brandmeta{display:block;color:var(--muted);font-size:10px;letter-spacing:1.1px;text-transform:uppercase;margin-top:2px}.navlabel{padding:11px 12px 7px;color:#69799f;font-size:10px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}.nav{display:grid;gap:5px}.nav button{border:0;background:transparent;color:#aeb9d8;text-align:left;padding:11px 12px;border-radius:12px;display:flex;align-items:center;gap:12px;transition:.2s}.nav button:hover{background:#ffffff0c;color:white}.nav button.active{background:linear-gradient(90deg,#45d6bd22,#72a7ff17);color:#fff;box-shadow:inset 3px 0 var(--teal)}.navicon{width:22px;text-align:center;font-size:17px}.navbadge{margin-left:auto;font-size:10px;padding:3px 7px;border-radius:20px;background:#ffbd7620;color:var(--orange)}.sidebarbottom{margin-top:auto}.connection{margin:16px 4px 10px;padding:13px;border:1px solid var(--line);background:#ffffff06;border-radius:15px}.connectiontop{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:750}.dot{width:7px;height:7px;border-radius:100%;background:var(--mint);box-shadow:0 0 0 4px #82e6a81a}.connection p{margin:7px 0 0;color:var(--muted);font-size:11px}.profile{display:flex;align-items:center;gap:10px;padding:12px 8px 3px;border-top:1px solid var(--line)}.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#e6a5ff,#83cfff);display:grid;place-items:center;color:#15203c;font-weight:900}.profile small{display:block;color:var(--muted);font-size:10px}.main{min-width:0}.topbar{height:76px;position:sticky;top:0;z-index:8;display:flex;align-items:center;justify-content:space-between;padding:0 30px;border-bottom:1px solid var(--line);background:#0b1020d9;backdrop-filter:blur(18px)}.crumb{color:var(--muted);font-size:12px}.crumb strong{color:white;font-size:13px;margin-left:7px}.topactions{display:flex;align-items:center;gap:10px}.search{position:relative}.search input{width:230px;padding:10px 13px 10px 36px;background:#ffffff08;border:1px solid var(--line);border-radius:11px;color:white;outline:none}.search input:focus{border-color:#45d6bd88}.search span{position:absolute;left:12px;top:8px;color:var(--muted)}.select,.ghostbtn,.primarybtn,.iconbtn{border:1px solid var(--line);background:#ffffff08;color:#eaf0ff;padding:10px 13px;border-radius:11px}.select{background:#172241}.ghostbtn:hover,.select:hover,.iconbtn:hover{border-color:#45d6bd88}.primarybtn{background:linear-gradient(110deg,#45d6bd,#82e6a8);color:#08251f;font-weight:850;border:0;box-shadow:0 7px 20px #45d6bd25}.primarybtn:hover{filter:brightness(1.06);transform:translateY(-1px)}.iconbtn{width:39px;height:39px;padding:0;display:grid;place-items:center;font-size:16px}.content{max-width:1600px;margin:0 auto;padding:27px 30px 55px}.pagehead{display:flex;justify-content:space-between;align-items:flex-end;gap:15px;margin:4px 0 22px}.eyebrow{color:var(--teal);font-size:10px;text-transform:uppercase;letter-spacing:1.7px;font-weight:850}.pagehead h1{font-size:28px;letter-spacing:-1px;margin:5px 0 3px}.pagehead p{margin:0;color:var(--muted);font-size:13px}.headright{display:flex;gap:9px;align-items:center;flex-wrap:wrap}.demo{display:inline-flex;align-items:center;gap:6px;padding:5px 9px;border-radius:30px;background:#ffbd7616;border:1px solid #ffbd7635;color:#ffc98f;font-size:10px;font-weight:850;letter-spacing:.6px}.period{display:flex;gap:4px;padding:4px;border:1px solid var(--line);background:#ffffff07;border-radius:12px}.period button{border:0;background:transparent;color:var(--muted);padding:7px 11px;border-radius:8px;font-size:11px}.period button.active{background:#45d6bd20;color:var(--teal);font-weight:800}.grid{display:grid;gap:16px}.kpis{grid-template-columns:repeat(4,minmax(0,1fr));margin-bottom:17px}.card{background:linear-gradient(145deg,#172241e8,#111a32ed);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);min-width:0}.kpi{padding:18px 19px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;right:-33px;top:-44px;width:120px;height:120px;border-radius:50%;background:var(--glow,#45d6bd);opacity:.09;filter:blur(2px)}.kpitop{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px}.kpiicon{width:31px;height:31px;border-radius:10px;background:var(--glowbg,#45d6bd18);display:grid;place-items:center;font-size:15px}.kpivalue{font-size:26px;font-weight:850;letter-spacing:-1px;margin:11px 0 5px}.kpifoot{font-size:10px;color:var(--muted)}.up{color:var(--mint);font-weight:800}.down{color:var(--red);font-weight:800}.two{grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);margin-bottom:17px}.cardhead{padding:18px 19px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}.cardhead h3{font-size:14px;margin:0;font-weight:800}.cardhead p{font-size:10px;color:var(--muted);margin:4px 0 0}.chartlegend{display:flex;gap:14px;color:var(--muted);font-size:10px}.legenddot{width:7px;height:7px;display:inline-block;border-radius:50%;margin-right:5px}.chartbox{padding:10px 18px 16px;height:245px}.chartbox svg{width:100%;height:100%;overflow:visible}.gridline{stroke:#ffffff12;stroke-dasharray:4 6}.chartlabel{fill:#8190b5;font-size:10px}.line1{fill:none;stroke:var(--teal);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}.line2{fill:none;stroke:var(--violet);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:.85}.area1{fill:url(#areaFill)}.paycard{padding-bottom:16px}.paybody{padding:18px;display:grid;grid-template-columns:145px 1fr;gap:15px;align-items:center}.donut{width:142px;height:142px;border-radius:50%;background:conic-gradient(var(--teal) 0 57%,var(--violet) 57% 92%,var(--orange) 92% 100%);display:grid;place-items:center;position:relative}.donut:before{content:"";position:absolute;inset:15px;background:#131d38;border-radius:50%}.donutcenter{z-index:1;text-align:center}.donutcenter b{display:block;font-size:17px}.donutcenter span{font-size:9px;color:var(--muted)}.payrows{display:grid;gap:14px}.payrow{display:flex;justify-content:space-between;gap:7px;font-size:11px}.payrow span:first-child{color:var(--muted)}.payrow strong{font-size:12px}.paykey{display:flex;align-items:center;gap:7px}.paykey i{width:8px;height:8px;border-radius:3px;background:var(--teal)}.paykey.card i{background:var(--violet)}.paykey.other i{background:var(--orange)}.lower{grid-template-columns:minmax(0,1.35fr) minmax(270px,1fr)}.tablewrap{overflow:auto;padding:9px 16px 16px}table{width:100%;border-collapse:collapse;white-space:nowrap}th{text-align:left;color:#8190b5;font-size:9px;text-transform:uppercase;letter-spacing:.9px;font-weight:800;padding:10px 9px;border-bottom:1px solid var(--line)}td{padding:12px 9px;border-bottom:1px solid #ffffff0a;font-size:11px;color:#dce5ff}tbody tr:hover{background:#ffffff06}.productcell{display:flex;align-items:center;gap:9px}.prodthumb{width:34px;height:38px;border-radius:9px;display:grid;place-items:center;font-size:16px;background:linear-gradient(145deg,#3d6574,#1e2947)}.prodname{font-weight:750}.sub{display:block;color:var(--muted);font-size:9px;margin-top:2px}.status{padding:4px 8px;border-radius:20px;font-size:9px;font-weight:800}.status.good{background:#82e6a81a;color:var(--mint)}.status.warn{background:#ffbd7619;color:var(--orange)}.status.bad{background:#ff829419;color:var(--red)}.activity{padding:13px 19px 18px}.activityitem{display:flex;gap:11px;position:relative;padding:10px 0}.activityitem:not(:last-child):before{content:"";position:absolute;left:12px;top:34px;bottom:-6px;width:1px;background:#ffffff16}.acticon{width:25px;height:25px;flex:0 0 25px;border-radius:8px;display:grid;place-items:center;background:#45d6bd19;color:var(--teal)}.acttext{font-size:11px}.acttext small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.view{display:none}.view.active{display:block}.toolbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:16px}.toolbar input,.toolbar select,.forminput{background:#111a32;color:white;border:1px solid var(--line);border-radius:10px;padding:10px 12px;outline:none}.toolbar input:focus,.toolbar select:focus,.forminput:focus{border-color:#45d6bd}.toolbar input{min-width:230px}.toolbar select option{background:#111a32}.fullcard{margin-bottom:16px}.syncintro{padding:20px;background:linear-gradient(120deg,#232e66,#182546);border:1px solid #596bc366;border-radius:18px}.syncintro h2{margin:0 0 7px;font-size:17px}.syncintro p{color:#b2bddf;margin:0;font-size:12px;max-width:900px}.syncform{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:17px}.field label{display:block;font-size:10px;color:#aeb9d8;margin-bottom:6px}.field input,.field select{width:100%;background:#111a32;color:white;border:1px solid #5367a0;border-radius:11px;padding:11px 12px;min-height:42px}.helper{color:#aeb9d8;font-size:10px;margin:9px 0 15px}.syncactions{display:flex;gap:9px;flex-wrap:wrap}.syncstatus{margin-top:14px;padding:12px 14px;border:1px solid #4866a4;background:#182e54;border-radius:12px;color:#c5d2f2;font-size:11px}.progress{height:7px;background:#ffffff15;border-radius:10px;overflow:hidden;margin-top:11px;display:none}.progress span{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--mint));display:block;border-radius:10px;transition:width .5s}.syncsteps{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:15px}.syncstep{padding:14px;border:1px solid var(--line);border-radius:13px;background:#ffffff05}.syncstep b{font-size:11px}.syncstep p{color:var(--muted);font-size:10px;margin:5px 0 0}.log{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#aab8da;font-size:10px;line-height:1.8;padding:13px;max-height:175px;overflow:auto;background:#080e1d;border-radius:12px}.analyticsgrid{grid-template-columns:repeat(3,minmax(0,1fr))}.analyticslarge{grid-column:span 2}.rankrow{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #ffffff0d}.rankno{width:23px;height:23px;border-radius:7px;background:#ffffff0a;display:grid;place-items:center;color:var(--muted);font-size:10px}.rankinfo{flex:1;font-size:11px;font-weight:750}.rankinfo small{display:block;color:var(--muted);font-size:9px;font-weight:400}.rankvalue{font-size:11px;font-weight:800}.telegrampreview{max-width:390px;margin:auto;background:#101b34;border-radius:26px;border:1px solid #ffffff1c;padding:17px;box-shadow:var(--shadow)}.tghead{display:flex;align-items:center;gap:9px;padding-bottom:12px;border-bottom:1px solid var(--line)}.tglogo{width:31px;height:31px;border-radius:10px;background:linear-gradient(135deg,var(--teal),var(--blue));display:grid;place-items:center;color:#092321;font-weight:900}.tgtitle{font-weight:850;font-size:12px}.tgsubtitle{font-size:9px;color:var(--muted)}.tgstatgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.tgstat{background:#ffffff08;border-radius:12px;padding:11px}.tgstat span{display:block;color:var(--muted);font-size:9px}.tgstat b{font-size:15px}.tgchart{padding:12px;background:#ffffff08;border-radius:13px}.tgchart h4{margin:0 0 10px;font-size:11px}.tgbar{display:flex;height:11px;border-radius:10px;overflow:hidden;background:#ffffff13}.tgbar span:first-child{background:var(--teal);width:63%}.tgbar span:last-child{background:var(--violet);width:37%}.tglegend{display:flex;justify-content:space-between;margin-top:10px;font-size:9px;color:var(--muted)}.tglegend strong{display:block;color:white;font-size:11px}.settingsgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.settingrow{display:flex;align-items:center;justify-content:space-between;gap:15px;padding:14px 0;border-bottom:1px solid #ffffff0c}.settingrow:last-child{border:0}.settingrow b{font-size:11px}.settingrow small{display:block;color:var(--muted);font-size:9px;margin-top:3px}.toggle{width:42px;height:23px;border:0;border-radius:30px;background:#34415f;padding:3px}.toggle:after{content:"";display:block;width:17px;height:17px;border-radius:50%;background:white;transition:.2s}.toggle.on{background:#228e7c}.toggle.on:after{transform:translateX(19px)}.modalback{position:fixed;inset:0;background:#030712b8;backdrop-filter:blur(7px);display:none;place-items:center;z-index:30;padding:20px}.modalback.show{display:grid}.modal{width:min(480px,100%);background:#172241;border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow)}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modalhead h3{margin:0}.modalgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.modalgrid .field:first-child{grid-column:span 2}.forminput{width:100%}.modalactions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.toast{position:fixed;bottom:22px;right:22px;background:#182746;border:1px solid #45d6bd55;color:#eafff9;padding:12px 16px;border-radius:12px;box-shadow:var(--shadow);z-index:50;opacity:0;transform:translateY(10px);transition:.25s;pointer-events:none;font-size:12px}.toast.show{opacity:1;transform:translateY(0)}.mobilemenu{display:none}
+@media(max-width:1100px){.kpis{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.lower{grid-template-columns:1fr}.analyticsgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{position:fixed;left:-270px;width:250px;transition:left .25s}.sidebar.open{left:0;box-shadow:20px 0 60px #0008}.topbar{padding:0 14px;height:64px}.content{padding:20px 14px 40px}.search{display:none}.mobilemenu{display:grid}.pagehead{align-items:flex-start;flex-direction:column}.pagehead h1{font-size:24px}.headright{width:100%}.syncform{grid-template-columns:1fr}.syncsteps{grid-template-columns:1fr}.analyticsgrid{grid-template-columns:1fr}.analyticslarge{grid-column:auto}.settingsgrid{grid-template-columns:1fr}.paybody{grid-template-columns:125px 1fr}.donut{width:120px;height:120px}.kpi{padding:15px}.kpivalue{font-size:22px}.topactions{gap:6px}.select{max-width:120px;padding:9px 7px;font-size:10px}}
+
+/* Live integration shell */
+body.auth-pending .sidebar, body.auth-pending .topbar { display:none !important; }
+body.auth-pending .app { display:block; min-height:100vh; }
+body.auth-pending .main { min-height:100vh; }
+body.auth-pending .content { padding:0 !important; margin:0 !important; }
+body.auth-pending #legacyPane { position:fixed; inset:0; z-index:1000; height:100vh; border:0; border-radius:0; }
+body.auth-pending #legacyFrame { position:absolute; inset:0; width:100%; height:100%; border:0; }
+.content.legacy-content { padding:16px 18px 18px; overflow:hidden; }
+#legacyPane { position:relative; width:100%; height:calc(100vh - 105px); min-height:520px; border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--panel); box-shadow:var(--shadow); }
+#legacyFrame { display:block; width:100%; height:100%; border:0; background:#0b1020; }
+.connectiontop .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:#fbbf24; box-shadow:0 0 0 4px #fbbf2418; }
+body.authenticated .connectiontop .dot { background:#45d6bd; box-shadow:0 0 0 4px #45d6bd18; }
+.quickmenu { position:fixed; z-index:80; right:24px; top:72px; width:220px; padding:7px; border:1px solid var(--line); border-radius:15px; background:var(--panel); box-shadow:var(--shadow); display:none; }
+.quickmenu.open { display:grid; gap:4px; }
+.quickmenu button { border:0; border-radius:10px; padding:10px 12px; text-align:left; background:transparent; color:var(--text); }
+.quickmenu button:hover { background:#ffffff12; }
+.shell-toast { position:fixed; bottom:20px; right:22px; z-index:120; border:1px solid var(--line); border-radius:13px; padding:11px 15px; background:var(--panel2); color:var(--text); box-shadow:var(--shadow); opacity:0; transform:translateY(8px); pointer-events:none; transition:.2s; }
+.shell-toast.show { opacity:1; transform:translateY(0); }
+@media(max-width:760px){
+ .content.legacy-content{padding:10px 8px 12px}
+ #legacyPane{height:calc(100vh - 82px);min-height:440px;border-radius:13px}
+ .topactions .search{display:none}
+ .topactions .select{max-width:118px}
+ .quickmenu{right:10px;top:64px}
+}
+
+
+.sbackdrop{display:none}
+.search .searchgo{position:absolute;left:4px;top:3px;width:32px;height:32px;border:0;background:transparent;color:var(--muted);font-size:16px;padding:0}
+.search span{display:none}
+.dot.warn{background:var(--orange);box-shadow:0 0 0 4px #ffbd7620}.dot.bad{background:var(--red);box-shadow:0 0 0 4px #ff829420}
+.loaderr{position:fixed;inset:0;z-index:2000;display:none;place-items:center;background:#030712cc;padding:20px}
+.loaderr.show{display:grid}
+.loaderr-box{max-width:430px;background:var(--panel2);border:1px solid var(--line);border-radius:18px;padding:24px;text-align:center;box-shadow:var(--shadow)}
+.loaderr-box p{color:var(--muted);margin:10px 0 18px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media(max-width:760px){
+ .search{display:block!important}.search input{width:120px;padding-left:34px}
+ .sbackdrop.show{display:block;position:fixed;inset:0;background:#030712a0;z-index:9}
+ #notifyBtn{display:none}
+ .topactions{min-width:0;flex:1;justify-content:flex-end}
+ .search input{width:96px}
+ #quickAdd{padding:10px 12px;white-space:nowrap;font-size:0}
+ #quickAdd::before{content:"＋";font-size:18px;line-height:1}
+ .select{max-width:96px}
+}
+@media print{.sidebar,.topbar,.quickmenu{display:none!important}}
+</style>
+</head>
+<body class="auth-pending">
+<div class="app">
+<div class="sbackdrop" id="sidebarBackdrop"></div>
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brandmark">S</div><div><div class="brandname">Stock Book</div><span class="brandmeta">Retail intelligence</span></div></div>
+  <div class="navlabel">Workspace</div>
+  <nav class="nav" id="nav">
+    <button class="active" data-view="overview"><span class="navicon">◈</span>Overview</button>
+    <button data-view="catalog"><span class="navicon">▦</span>Product catalog</button>
+    <button data-view="sales"><span class="navicon">↗</span>Sales & returns</button>
+    <button data-view="imports"><span class="navicon">⇧</span>Imports</button>
+    <button data-view="transfers"><span class="navicon">⇄</span>Transfers</button>
+    <button data-view="writeoffs"><span class="navicon">⊖</span>Write-offs</button>
+  </nav>
+  <div class="navlabel">Intelligence</div>
+  <nav class="nav">
+    <button data-view="intelligence"><span class="navicon">✧</span>Smart Retail Intelligence <span class="navbadge">NEW</span></button>
+    <button data-view="analytics"><span class="navicon">▤</span>Management analytics <span class="navbadge">NEW</span></button>
+    <button data-view="reports"><span class="navicon">▥</span>Daily reports</button>
+  </nav>
+  <div class="navlabel">Integrations</div>
+  <nav class="nav">
+    <button data-view="sync"><span class="navicon">⟳</span>BILLZ synchronization</button>
+    <button data-view="telegram"><span class="navicon">➤</span>Telegram Mini App</button>
+    <button data-view="settings"><span class="navicon">⚙</span>Settings</button>
+  </nav>
+  <div class="sidebarbottom">
+    <div class="connection"><div class="connectiontop"><span class="dot" id="connectionDot"></span><span id="connectionText">Connecting securely…</span></div><p id="connectionDescription">Checking your existing Stock Book account and live data workspace.</p></div>
+    <div class="profile"><div class="avatar" id="shellAvatar">SB</div><div><b style="font-size:11px">Stock Book</b><small id="shellIdentity">Management workspace</small></div></div>
+  </div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:12px"><button class="iconbtn mobilemenu" id="mobilemenu" aria-label="Open menu">☰</button><div class="crumb">Workspace <strong id="crumb">Overview</strong></div></div>
+  <div class="topactions"><div class="search"><button type="button" id="searchGo" class="searchgo" aria-label="Search" title="Search (press /)">⌕</button><input id="globalSearch" type="search" placeholder="Search products…  ( / )" autocomplete="off" aria-label="Search products" /></div><select class="select" id="storeSelect" aria-label="Store"><option>All stores</option><option>Warda</option><option>Amani</option><option>Afiya Noor</option><option>Warda 2</option></select><button class="iconbtn" id="notifyBtn" title="Smart alerts &amp; recommendations" aria-label="Smart alerts">♧</button><button class="primarybtn" id="quickAdd" aria-haspopup="true" aria-expanded="false">＋ Quick action</button></div>
+</header>
+<div class="content legacy-content">
+  <div id="legacyPane" aria-label="Stock Book live workspace">
+    <iframe id="legacyFrame" title="Stock Book operational workspace" src="/legacy-app.html" loading="eager" allow="clipboard-read; clipboard-write"></iframe>
+  </div>
+</div>
+</main>
+</div>
+<div class="loaderr" id="loadError" role="alert"><div class="loaderr-box"><b>Stock Book could not finish loading</b><p id="loadErrorText"></p><button type="button" class="primarybtn" id="loadReload">Try again</button></div></div>
+<div class="quickmenu" id="quickMenu" role="menu" aria-label="Quick actions">
+  <button type="button" data-action="sale">↗ &nbsp; New sale</button>
+  <button type="button" data-action="import">⇧ &nbsp; New import</button>
+  <button type="button" data-action="transfer">⇄ &nbsp; New transfer</button>
+  <button type="button" data-action="writeoff">⊖ &nbsp; New write-off</button>
+</div>
+<div class="shell-toast" id="shellToast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const frame = $('legacyFrame');
+  const labels = {overview:'Overview',catalog:'Product catalog',sales:'Sales & returns',imports:'Imports',transfers:'Transfers',writeoffs:'Write-offs',intelligence:'Smart Retail Intelligence',analytics:'Management analytics',reports:'Daily reports',sync:'BILLZ synchronization',telegram:'Telegram Mini App',settings:'Settings'};
+  const appViews = Object.keys(labels).filter(v=>v!=='telegram'&&v!=='settings');
+  const storeMap = {'All stores':'','Warda':'Warda','Amani':'Amani','Afiya Noor':'Afiya noor','Warda 2':'Warda 2'};
+  const BOT_URL = 'https://t.me/wardareport2026_bot';
+  let activeView = 'overview', observer = null, authCheck = null, toastTimer = null, frameLoadedAt = 0, bootWaitStart = Date.now();
+  const pending = [];            // actions requested before the app finished loading
+  let searchTimer = null;
+
+  function toast(message){
+    const el=$('shellToast'); if(!el)return;
+    el.textContent=message; el.classList.add('show');
+    clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),2800);
+  }
+  function doc(){try{return frame.contentDocument || frame.contentWindow.document;}catch(_){return null;}}
+  function bridge(){try{const b=frame.contentWindow.StockBookBridge;return b&&b.ready&&b.ready()?b:null;}catch(_){return null;}}
+  function bridgeAny(){try{return frame.contentWindow.StockBookBridge||null;}catch(_){return null;}}
+
+  /* ---------- skin the embedded app ---------- */
+  function applyLegacySkin(){
+    const d=doc(); if(!d || !d.head || d.getElementById('stockbook-shell-skin'))return;
+    const style=d.createElement('style'); style.id='stockbook-shell-skin';
+    style.textContent = `
+      :root,html[data-theme="indigo"],html:not([data-theme]){--bg:#0b1020;--side:#111a32;--card:#111a32;--row:#172241;--c2:#202d56;--tx:#f4f7ff;--mu:#9ca9cc;--bd:rgba(162,180,231,.18);--ac:#45d6bd;--on:#071827;--ok:#82e6a8;--okbg:#173b37;--bad:#ff8294;--s2:#72a7ff;--s3:#82e6a8;--s4:#ffbd76;--s5:#a78bfa;color-scheme:dark}
+      html,body{background:#0b1020!important;color:#f4f7ff!important;min-height:100%;}
+      body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif!important}
+      #side{display:none!important}
+      body.in #wrap{margin:0!important;max-width:none!important;width:auto!important;padding:12px 14px 22px!important}
+      body.in main{max-width:none!important;margin:0!important;width:100%!important}
+      body.in main::before{display:none!important}
+      #app{width:100%!important;min-width:0!important}
+      #app>section{min-width:0}
+      #app>section>.ph1{border-radius:16px!important}
+      #app .card{border-radius:16px!important}
+      #fly{left:auto!important;right:12px!important;bottom:12px!important;z-index:99!important}
+      #dlg,#pnl,#tip{z-index:110!important}
+      input,select,textarea{max-width:100%}
+      @media(max-width:760px){body.in #wrap{padding:8px!important}h1{font-size:24px!important}}
+    `;
+    d.head.appendChild(style);
+  }
+
+  /* ---------- auth / connection state ---------- */
+  function setConn(text,desc,state){
+    $('connectionText').textContent=text; $('connectionDescription').textContent=desc;
+    $('connectionDot').className='dot '+(state||'');
+  }
+  function inspectAuth(){
+    const d=doc(); if(!d)return;
+    applyLegacySkin();
+    const app=d.getElementById('app'), login=d.getElementById('login');
+    if(!app || !login)return;
+    const ready=!app.hidden && login.hidden;
+    document.body.classList.toggle('authenticated',ready);
+    document.body.classList.toggle('auth-pending',!ready);
+    if(!navigator.onLine){ setConn('Offline','No internet connection. Changes cannot be saved until you are back online.','bad'); }
+    else if(ready){
+      setConn('Signed-in workspace','Firebase records and Stock Book services are available.','');
+      const b=bridgeAny();
+      if(b){ try{const who=b.identity(); if(who){$('shellIdentity').textContent=who;$('shellAvatar').textContent=who.slice(0,2).toUpperCase();}}catch(_){} }
+    }else{
+      setConn('Sign in required','Use your existing Stock Book account to continue.','warn');
+    }
+    if(ready){ hideLoadError(); flushPending(); syncNavFromApp(); }
+    else if(window.__shellBootErr===undefined){ checkBootError(d); }
+  }
+  function checkBootError(d){
+    try{
+      const w=frame.contentWindow;
+      if(w && w.__sbBootError){ window.__shellBootErr=w.__sbBootError; }
+    }catch(_){}
+  }
+
+  /* keep the sidebar highlight correct even when the app navigates by itself */
+  function syncNavFromApp(){
+    const b=bridgeAny(); if(!b||!b.current)return;
+    let v; try{v=b.current();}catch(_){return}
+    if(v && v!==activeView && activeView!=='settings' && activeView!=='telegram'){ setNav(v,true); }
+  }
+
+  function onFrameReady(){
+    frameLoadedAt=Date.now();
+    applyLegacySkin(); inspectAuth();
+    const d=doc();
+    if(d && d.documentElement && window.MutationObserver){
+      if(observer)observer.disconnect();
+      observer=new MutationObserver(inspectAuth);
+      observer.observe(d.documentElement,{subtree:true,attributes:true,attributeFilter:['hidden','class']});
+    }
+    if(authCheck)clearInterval(authCheck);
+    authCheck=setInterval(inspectAuth,800);
+  }
+
+  /* ---------- load-failure panel (instead of silently dead buttons) ---------- */
+  function showLoadError(msg){
+    const box=$('loadError'); if(!box)return;
+    $('loadErrorText').textContent=msg; box.classList.add('show');
+  }
+  function hideLoadError(){const box=$('loadError'); if(box)box.classList.remove('show');}
+  setInterval(()=>{
+    if(document.body.classList.contains('authenticated'))return;
+    const w=(()=>{try{return frame.contentWindow}catch(_){return null}})();
+    if(w && w.__sbBootError){ showLoadError(w.__sbBootError); return; }
+    if(Date.now()-bootWaitStart>25000 && !bridgeAny()){
+      showLoadError('Stock Book is taking too long to start. Check your connection or disable ad-blockers/VPN for this site, then reload.');
+    }
+  },2000);
+  $('loadReload').addEventListener('click',()=>{hideLoadError();bootWaitStart=Date.now();frame.src='/legacy-app.html?r='+Date.now();});
+
+  /* ---------- navigation ---------- */
+  function setNav(view,silent){
+    activeView=view;
+    document.querySelectorAll('[data-view]').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
+    $('crumb').textContent=labels[view]||view;
+    closeSidebar();
+    if(!silent && appViews.indexOf(view)>=0){ try{ history.replaceState(null,'','#'+view); }catch(_){ } }
+    document.title=(labels[view]||'Stock Book')+' — Stock Book';
+  }
+  function closeSidebar(){ $('sidebar').classList.remove('open'); $('sidebarBackdrop').classList.remove('show'); }
+  function flushPending(){
+    if(!pending.length||!bridge())return;
+    const jobs=pending.splice(0); jobs.forEach(j=>{try{j()}catch(e){console.warn(e)}});
+  }
+  function whenReady(job,label){
+    if(bridge()){ job(); return true; }
+    pending.push(job);
+    toast(document.body.classList.contains('authenticated')?'Loading… your action will run in a moment.':'Please sign in first — your action will run afterwards.');
+    return false;
+  }
+
+  function navigate(view){
+    if(view==='telegram'){
+      setNav('telegram');
+      window.open(BOT_URL,'_blank','noopener');
+      toast('Open the bot and tap Dashboard to launch the Mini App.');
+      setTimeout(()=>setNav(bridgeAny()&&bridgeAny().current?bridgeAny().current():'overview',true),600);
+      return;
+    }
+    const run=()=>{
+      const b=bridge();
+      if(view==='settings'){
+        b.navigate('overview'); setNav('settings',true);
+        setTimeout(()=>{const x=bridge();if(x&&!x.settings())toast('Settings are not available.');},80);
+        return;
+      }
+      if(!b.navigate(view)){toast('This section is not available.');return;}
+      setNav(view);
+    };
+    setNav(view,true);       // instant visual feedback
+    whenReady(run);
+  }
+
+  document.querySelectorAll('[data-view]').forEach(btn=>btn.addEventListener('click',()=>navigate(btn.dataset.view)));
+  document.querySelectorAll('[data-goto]').forEach(btn=>btn.addEventListener('click',()=>navigate(btn.dataset.goto)));
+  $('mobilemenu').addEventListener('click',()=>{const o=$('sidebar').classList.toggle('open');$('sidebarBackdrop').classList.toggle('show',o);});
+  $('sidebarBackdrop').addEventListener('click',closeSidebar);
+  $('notifyBtn').addEventListener('click',()=>navigate('intelligence'));
+
+  /* ---------- quick actions ---------- */
+  function closeQuick(){$('quickMenu').classList.remove('open');$('quickAdd').setAttribute('aria-expanded','false');}
+  $('quickAdd').addEventListener('click',e=>{e.stopPropagation();const o=$('quickMenu').classList.toggle('open');$('quickAdd').setAttribute('aria-expanded',String(o));});
+  $('quickMenu').addEventListener('click',e=>{
+    const b=e.target.closest('[data-action]');if(!b)return;
+    const act=b.dataset.action; closeQuick();
+    const v=act==='sale'?'sales':act==='import'?'imports':act==='transfer'?'transfers':'writeoffs';
+    whenReady(()=>{const x=bridge(); if(x.quick(act)) setNav(v,true); else toast('That action is not available.');});
+  });
+  document.addEventListener('click',e=>{if(!e.target.closest('#quickAdd')&&!e.target.closest('#quickMenu'))closeQuick()});
+
+  /* ---------- search (live + Enter + button) ---------- */
+  function runSearch(q){
+    q=(q||'').trim();
+    whenReady(()=>{const x=bridge(); x.search(q); setNav('catalog');});
+  }
+  $('globalSearch').addEventListener('keydown',e=>{
+    if(e.key==='Enter'){e.preventDefault();clearTimeout(searchTimer);const q=e.target.value.trim();if(q)runSearch(q);}
+    if(e.key==='Escape'){e.target.value='';e.target.blur();}
+  });
+  $('globalSearch').addEventListener('input',e=>{
+    clearTimeout(searchTimer);const q=e.target.value;
+    if(q.trim().length<2)return;
+    searchTimer=setTimeout(()=>{if(bridge())runSearch(q)},450);
+  });
+  $('searchGo').addEventListener('click',()=>{const q=$('globalSearch').value.trim();if(q)runSearch(q);else $('globalSearch').focus();});
+
+  $('storeSelect').addEventListener('change',e=>{
+    whenReady(()=>{const x=bridge();x.setStore(storeMap[e.target.value]??'');toast('Store filter: '+e.target.value);});
+  });
+
+  /* ---------- global niceties ---------- */
+  document.addEventListener('keydown',e=>{
+    const t=e.target, typing=t&&/^(INPUT|SELECT|TEXTAREA)$/.test(t.tagName);
+    if(e.key==='Escape'){closeQuick();closeSidebar();}
+    if(e.key==='/'&&!typing&&!e.ctrlKey&&!e.metaKey){e.preventDefault();$('globalSearch').focus();}
+  });
+  window.addEventListener('online',()=>{toast('Back online.');inspectAuth();});
+  window.addEventListener('offline',()=>{toast('You are offline.');inspectAuth();});
+  window.addEventListener('hashchange',()=>{const v=location.hash.slice(1);if(v&&labels[v]&&v!==activeView)navigate(v);});
+  // Landing on e.g. /#catalog opens that section once the user is signed in.
+  const startView=location.hash.slice(1);
+  if(startView && appViews.indexOf(startView)>=0 && startView!=='overview'){ pending.push(()=>{const b=bridge(); if(b&&b.navigate(startView))setNav(startView,true);}); }
+
+  frame.addEventListener('load',onFrameReady);
+  frame.addEventListener('error',()=>showLoadError('The workspace file could not be loaded. Reload the page.'));
+  setTimeout(onFrameReady,700);
+})();
+</script>
+</body></html>
